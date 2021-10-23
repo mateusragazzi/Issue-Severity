@@ -8,7 +8,7 @@ csrf = CSRFProtect(app)
 app.config['SECRET_KEY'] = "asdasd"
 csrf.init_app(app)
 
-@app.route('/')
+@app.route('/',  methods=["GET", "POST"])
 def searchPage():
   return SearchController.render()
 
