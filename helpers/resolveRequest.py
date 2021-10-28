@@ -32,19 +32,8 @@ class ResolveRequest:
   def formatResponse(self, result):
     return {
         "result": result, 
-        "accuracy": self.getAccuracy(), 
-        "words": [
-          {"tag": "Teste", "weight": 4},
-          {"tag": "Teste", "weight": 6}, 
-          {"tag": "Teste", "weight": 21}, 
-          {"tag": "Teste", "weight": 10}, 
-          {"tag": "Teste", "weight": 5}, 
-          {"tag": "Teste", "weight": 8},
-          {"tag": "Teste", "weight": 15}, 
-          {"tag": "Teste", "weight": 123}, 
-          {"tag": "Teste", "weight": 16}, 
-          {"tag": "Teste", "weight": 2}, 
-        ]
+        "accuracy": self.getAccuracy()
+        # "words": [{"tag": "Teste", "weight": 4}]
       }
 
   def process(self):
