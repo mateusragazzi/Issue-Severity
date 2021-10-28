@@ -18,8 +18,10 @@ class SearchController():
         vectorizer,
         severityMap
       ).process()
+      
       return render_template(
-        "result/index.jinja2",
+        "search/index.jinja2",
+        form=form,
         result=result
     )
 

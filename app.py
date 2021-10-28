@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 from controller.searchController import SearchController
-from controller.resultController import ResultController
 from helpers.loadDataset import LoadDataset
 
 X_train = None
@@ -26,10 +25,6 @@ def readDataset():
 def searchPage():
   global X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap
   return SearchController.render(X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap)
-
-@app.route('/result',  methods=["GET"])
-def resultPage():
-  return ResultController.render()
 
 if __name__ == '__main__':
   readDataset()
