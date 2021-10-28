@@ -59,6 +59,11 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
   box-sizing: border-box
 }
 
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
 .s003 {
   min-height: 100vh;
   display: -ms-flexbox;
@@ -207,4 +212,24 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
       margin-bottom: 0;
       width: 100%
   }
+}
+
+.result {
+  margin-top: 25px;
+  text-align: center;
+  color: var(--primaryColor);
+  background: #fdf2f2b5;
+  width: 100%;
+  max-width: 790px;
+  border-radius: 5px;
+}
+
+.result h1 {
+  margin-bottom: 0;
+  font-weight: lighter;
+}
+
+.result h5 {
+  margin-top: 5px;
+  font-weight: lighter;
 }
