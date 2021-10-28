@@ -9,7 +9,7 @@
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 
       <div class="input-field second-wrap">
-          {{ form.search() }}
+          {{ form.search(size=100) }}
       </div>
 
       <div class="input-field third-wrap">
