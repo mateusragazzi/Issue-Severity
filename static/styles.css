@@ -154,18 +154,22 @@ h1 {
 }
 
 .s003 form .inner-form .input-field.third-wrap {
-  width: 74px
+  min-width: 100px;
+  display: flex;
 }
 
-.s003 form .inner-form .input-field.third-wrap .btn-search {
+.s003 form .inner-form .input-field.third-wrap .btn {
   height: 100%;
   width: 100%;
   white-space: nowrap;
   color: var(--secondaryColor);
   border: 0;
   cursor: pointer;
-  background: var(--primaryColor);
   transition: all .2s ease-out,color .2s ease-out
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-search {
+  background: var(--primaryColor);
 }
 
 .s003 form .inner-form .input-field.third-wrap .btn-search svg {
@@ -232,4 +236,8 @@ h1 {
 .result h5 {
   margin-top: 5px;
   font-weight: lighter;
+}
+
+.btn-clear {
+  background: var(--secondaryColor);
 }

@@ -2,6 +2,11 @@ function sendSearch() {
   jQuery('#searchFormBtn').click();
 }
 
+function clearSearch() {
+  jQuery("#search").val("")
+  jQuery(".result").hide(200)
+}
+
 window.addEventListener('load', () => {
   // WORD CLOUD PLUGIN
   // am4core.ready(function() {
