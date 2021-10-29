@@ -16,6 +16,7 @@ csrf = CSRFProtect(app)
 app.config['SECRET_KEY'] = "asdasd"
 csrf.init_app(app)
 
+@app.before_first_request
 def readDataset():
   global X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap
   if (X_train is None and vectorizer is None):
@@ -27,5 +28,4 @@ def searchPage():
   return SearchController.render(X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap)
 
 if __name__ == '__main__':
-  readDataset()
   app.run(debug=True)
