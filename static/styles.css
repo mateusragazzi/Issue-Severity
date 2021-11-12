@@ -172,8 +172,18 @@ h1 {
   background: var(--primaryColor);
 }
 
-.s003 form .inner-form .input-field.third-wrap .btn-search svg {
-  width: 16px
+.s003 form .inner-form .input-field.third-wrap .btn-search img {
+  width: 23px;
+  filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(171deg) brightness(107%) contrast(100%);
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-clear img,
+.btn-no {
+  filter: invert(17%) sepia(35%) saturate(5430%) hue-rotate(353deg) brightness(103%) contrast(92%);
+}
+
+.btn-yes {
+  filter: invert(44%) sepia(55%) saturate(2540%) hue-rotate(89deg) brightness(92%) contrast(109%);
 }
 
 .s003 form .inner-form .input-field.third-wrap .btn-search:hover {
@@ -240,4 +250,16 @@ h1 {
 
 .btn-clear {
   background: var(--secondaryColor);
+}
+
+.agree-or-not,
+.suggestion {
+  margin: 15px 0;
+}
+
+.suggestion-chooser {
+  margin: 10px 0 5px;
+  width: 25%;
+  padding: 7px 5px 4px;
+  border: 1px solid var(--primaryColor);
 }

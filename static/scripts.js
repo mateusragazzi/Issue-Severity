@@ -1,10 +1,36 @@
 function sendSearch() {
+  let issue = jQuery("#search").val();
+  let severity = jQuery(".result h1").text().split(": ")[1];
+  window.localStorage.setItem("persistFeedback", JSON.stringify({ feedback: null, issue, severity, severityChoosed: null }));
+
   jQuery('#searchFormBtn').click();
 }
 
 function clearSearch() {
   jQuery("#search").val("")
   jQuery(".result").hide(200)
+}
+
+function sendFeedback(userFeedback) {
+  let feedback = JSON.parse(window.localStorage.getItem("persistFeedback"));
+  feedback.feedback = userFeedback;
+
+  window.localStorage.setItem("persistFeedback", JSON.stringify(feedback));
+
+  if (userFeedback) 
+    persistFeedback(feedback);
+  else
+    askForSuggestion();
+}
+
+function persistFeedback(feedback) {
+  console.log(feedback);
+  window.localStorage.clear("persistFeedback");
+}
+
+function askForSuggestion() {
+  jQuery(".agree-or-not").hide(300)
+  jQuery(".suggestion").show(500)
 }
 
 window.addEventListener('load', () => {
