@@ -7,8 +7,8 @@ function sendSearch() {
 }
 
 function clearSearch() {
-  jQuery("#search").val("")
-  jQuery(".result").hide(200)
+  jQuery("#search").val("");
+  jQuery(".result").hide(200);
 }
 
 function sendFeedback(userFeedback) {
@@ -23,14 +23,38 @@ function sendFeedback(userFeedback) {
     askForSuggestion();
 }
 
-function persistFeedback(feedback) {
-  console.log(feedback);
-  window.localStorage.clear("persistFeedback");
+function askForSuggestion() {
+  jQuery(".agree-or-not").hide(300);
+  jQuery(".suggestion").show(500);
 }
 
-function askForSuggestion() {
-  jQuery(".agree-or-not").hide(300)
-  jQuery(".suggestion").show(500)
+function sendChoosedSeverity() {
+  let issue = jQuery("#choosed-severity option:selected").val();
+  let feedback = JSON.parse(window.localStorage.getItem("persistFeedback"));
+  feedback.severityChoosed = issue;
+
+  window.localStorage.setItem("persistFeedback", JSON.stringify(feedback));
+  persistFeedback(feedback);
+}
+
+function persistFeedback(feedback) {
+  console.log(feedback);
+
+  jQuery.ajax({
+    url: '/save-query',
+    method: 'POST',
+    data: feedback,
+    dataType: 'json',
+    success: (response) => {
+      console.log(response)
+    },
+    error: () => {
+
+    }
+  });
+
+  window.localStorage.clear("persistFeedback");
+  clearSearch();
 }
 
 window.addEventListener('load', () => {

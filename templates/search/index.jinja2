@@ -43,17 +43,19 @@
         </div>
         <div class="suggestion" style="display: none;">
           <legend>What is your suggestion?</legend>
-          <select class="suggestion-chooser">
-            <option value="blocker">Blocker</option>
-            <option value="critical">Critical</option>
-            <option value="enhancement">Enhancement</option>
-            <option value="major">Major</option>
-            <option value="minor">Minor</option>
-            <option value="normal">Normal</option>
-          </select>
-          <button class="btn" type="button" onclick="sendFeedback(false)">
-            <img class="btn-yes" src="/static/send.svg" />
-          </button>
+          <div class="suggestion-div">
+            <select id="choosed-severity" class="suggestion-chooser">
+              <option value="blocker">Blocker</option>
+              <option value="critical">Critical</option>
+              <option value="enhancement">Enhancement</option>
+              <option value="major">Major</option>
+              <option value="minor">Minor</option>
+              <option value="normal">Normal</option>
+            </select>
+            <button class="btn btn-suggestion" type="button" onclick="sendChoosedSeverity()">
+              <img class="btn-yes" src="/static/send.svg" />
+            </button>
+          </div>
         </div>
       </form>
     </div>

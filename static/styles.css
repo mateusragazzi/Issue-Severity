@@ -257,9 +257,21 @@ h1 {
   margin: 15px 0;
 }
 
+.suggestion-div {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
 .suggestion-chooser {
-  margin: 10px 0 5px;
   width: 25%;
   padding: 7px 5px 4px;
   border: 1px solid var(--primaryColor);
+}
+
+.btn-suggestion {
+  display: flex;
+  border-radius: 0px;
+  border: 1px solid var(--primaryColor);
+  border-left-width: 0;
 }
