@@ -1,10 +1,61 @@
 function sendSearch() {
+  let issue = jQuery("#search").val();
+  window.localStorage.setItem("persistFeedback", JSON.stringify({ feedback: null, issue, severityChoosed: null }));
+
   jQuery('#searchFormBtn').click();
 }
 
 function clearSearch() {
-  jQuery("#search").val("")
-  jQuery(".result").hide(200)
+  jQuery("#search").val("");
+  jQuery(".result").hide(200);
+}
+
+function sendFeedback(userFeedback) {
+  let feedback = JSON.parse(window.localStorage.getItem("persistFeedback"));
+  let severity = jQuery(".result h1").text().split(": ")[1];
+  feedback.severity = severity;
+  feedback.feedback = userFeedback;
+
+  window.localStorage.setItem("persistFeedback", JSON.stringify(feedback));
+
+  if (userFeedback) 
+    persistFeedback(feedback);
+  else
+    askForSuggestion();
+}
+
+function askForSuggestion() {
+  jQuery(".agree-or-not").hide(300);
+  jQuery(".suggestion").show(500);
+}
+
+function sendChoosedSeverity() {
+  let issue = jQuery("#choosed-severity option:selected").val();
+  let feedback = JSON.parse(window.localStorage.getItem("persistFeedback"));
+  feedback.severityChoosed = issue;
+
+  window.localStorage.setItem("persistFeedback", JSON.stringify(feedback));
+  persistFeedback(feedback);
+}
+
+function persistFeedback(feedback) {
+  console.log(feedback);
+
+  jQuery.ajax({
+    url: '/save-query',
+    method: 'POST',
+    data: feedback,
+    dataType: 'json',
+    success: (response) => {
+      console.log(response)
+    },
+    error: () => {
+
+    }
+  });
+
+  window.localStorage.clear("persistFeedback");
+  clearSearch();
 }
 
 window.addEventListener('load', () => {

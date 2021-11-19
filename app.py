@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_wtf.csrf import CSRFProtect
 from controller.searchController import SearchController
 from helpers.loadDataset import LoadDataset
@@ -26,6 +26,12 @@ def readDataset():
 def searchPage():
   global X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap
   return SearchController.render(X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap)
+
+@csrf.exempt
+@app.route('/save-query',  methods=["POST"])
+def persistSearch():
+  SearchController.saveSearch(request)
+  return "";
 
 if __name__ == '__main__':
   app.run(debug=True)
