@@ -13,7 +13,7 @@ severityMap = None
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
-app.config['SECRET_KEY'] = "asdasd"
+app.config['SECRET_KEY'] = "juafbuasfuiosdaiu3opdo"
 csrf.init_app(app)
 
 @app.before_first_request
