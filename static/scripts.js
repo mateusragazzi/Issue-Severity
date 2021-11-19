@@ -77,4 +77,12 @@ window.addEventListener('load', () => {
     
   //   $('#id-50-title').parent('g').remove();
   // });
+
+  jQuery("#search").on('keydown', function(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      sendSearch();
+    }
+  });
 })
