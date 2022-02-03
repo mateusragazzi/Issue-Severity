@@ -9,10 +9,8 @@ class LoadDataset():
   severityQtd = {'normal': 110000, 'major': 83000, 'enhancement': 94853, 'critical': 110000, 'minor': 82485, 'blocker': 13661}
   sentences_train_final = []
   sentences_test_final = []
-  y_train_final = []
   y_test_final = []
   vectorizer = None
-  X_train = None
   X_test = None
 
   def insertItemsOnList(self, dataframe):
@@ -23,7 +21,6 @@ class LoadDataset():
     
     self.sentences_train_final.extend(sentences_train)
     self.sentences_test_final.extend(sentences_test)
-    self.y_train_final.extend(y_train)
     self.y_test_final.extend(y_test)
 
   def initData(self):
@@ -39,7 +36,6 @@ class LoadDataset():
 
     self.vectorizer = TfidfVectorizer()
     self.vectorizer.fit(self.sentences_train_final + self.sentences_test_final)
-    self.X_train = self.vectorizer.transform(self.sentences_train_final)
     self.X_test = self.vectorizer.transform(self.sentences_test_final)
 
-    return self.X_train, self.y_train_final, self.X_test, self.y_test_final, self.vectorizer, self.severityMap
+    return self.X_test, self.y_test_final, self.vectorizer, self.severityMap

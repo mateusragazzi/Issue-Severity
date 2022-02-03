@@ -19,14 +19,12 @@ class SearchController():
     
 
   @staticmethod
-  def render(X_train, y_train_final, X_test, y_test_final, vectorizer, severityMap):
+  def render(X_test, y_test_final, vectorizer, severityMap):
     form = SearchForm()
 
     if form.validate_on_submit():
       result = ResolveRequest(
         form, 
-        X_train,
-        y_train_final,
         X_test,
         y_test_final,
         vectorizer,
