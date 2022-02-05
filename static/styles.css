@@ -303,3 +303,7 @@ div.help small {
 .tippy-box[data-theme~='issue-severity'][data-placement^='top'] > .tippy-arrow::before {
   border-top-color: var(--primaryColor);
 }
+
+.tippy-box[data-theme~='issue-severity'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-top-color: var(--primaryColor);
+}
