@@ -275,3 +275,31 @@ h1 {
   border: 1px solid var(--primaryColor);
   border-left-width: 0;
 }
+
+div.help {
+  margin-top: 10px;
+}
+
+div.help a {
+  text-decoration: none;
+}
+
+div.help small {
+  color: var(--primaryColor);
+  text-decoration: none;
+  margin-left: 15px;
+  opacity: 0.7;
+}
+
+.tippy-content {
+  font-family: sans-serif;
+}
+
+.tippy-box[data-theme~='issue-severity'] {
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+}
+
+.tippy-box[data-theme~='issue-severity'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--primaryColor);
+}

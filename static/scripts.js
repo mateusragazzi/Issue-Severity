@@ -85,4 +85,18 @@ window.addEventListener('load', () => {
       sendSearch();
     }
   });
+
+  tippy('.help #issue', {
+    content: "Record and monitor suggestions and changes around the software. <br><br> <small>Leon, A. <i>Software configuration management handbook</i>, Artech House, 2015.</small>",
+    theme: 'issue-severity',
+    trigger: 'click',
+    allowHTML: true
+  });
+
+  tippy('.help #severity', {
+    content: "Reporting level, which can be: <br> <ul> <li> <b>Blocker:</b> blocks development, testing or use of software </li> <li> <b>Critical:</b> cause crash, loss of data or memory leak </li> <li> <b>Major:</b> major loss of functionality </li> <li> <b>Normal:</b> loss of functionality under certain circumstances </li> <li> <b>Minor:</b> minor loss of functionality which is easy for user to workaround </li> <li> <b>Enhancement:</b> cosmetic problem, misspelled word or others improvements </li> </ul> <small>Gomes, L., Torres, R., Côrtes, M., <i>Bug Report Severity Level Prediction in Open Source Software: A Survey and Research Opportunities</i>, 2019.</small>",
+    theme: 'issue-severity',
+    trigger: 'click',
+    allowHTML: true
+  });
 })
