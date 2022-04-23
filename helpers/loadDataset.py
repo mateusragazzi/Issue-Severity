@@ -24,7 +24,7 @@ class LoadDataset():
     self.y_test_final.extend(y_test)
 
   def initData(self):
-    engine = create_engine("mariadb+pymysql://u587450571_tcc:7K+lQEfp[Qf@185.201.11.23/u587450571_tcc?charset=utf8mb4")
+    engine = create_engine("mariadb+pymysql://u587450571_tcc:~p5CLW=Sx6@sql569.main-hosting.eu/u587450571_tcc?charset=utf8mb4")
 
     for severity in self.severityMap:
       sql_join = """SELECT * FROM full_data WHERE severity = "?" ORDER BY id LIMIT !"""
