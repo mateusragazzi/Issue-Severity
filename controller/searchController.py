@@ -1,3 +1,5 @@
+import os
+
 from flask import render_template
 from helpers.searchForm import SearchForm
 from helpers.resolveRequest import ResolveRequest
@@ -6,7 +8,12 @@ class SearchController():
 
   @staticmethod
   def saveSearch(request):
-    engine = create_engine("mariadb+pymysql://u587450571_tcc:7K+lQEfp[Qf@185.201.11.23/u587450571_tcc?charset=utf8mb4")
+    mysql_user = os.environ.get('MYSQL_USER')
+    mysql_password = os.environ.get('MYSQL_PASSWORD')
+    mysql_host = os.environ.get('MYSQL_HOST')
+    mysql_database = os.environ.get('MYSQL_DATABASE')
+    conn_address = "mariadb+pymysql://%s:%s@%s/%s?charset=utf8mb4" % (mysql_user, mysql_password, mysql_host, mysql_database) 
+    engine = create_engine(conn_address)
 
     feedback = 1 if request.form["feedback"] == "true" else 0
     issue = request.form["issue"]

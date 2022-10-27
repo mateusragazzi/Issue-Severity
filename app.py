@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, request
 from flask_wtf.csrf import CSRFProtect
 from controller.searchController import SearchController
@@ -32,4 +34,4 @@ def persistSearch():
   return "";
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=os.environ.get('FLASK_DEBUG'))
